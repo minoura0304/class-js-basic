@@ -28,10 +28,14 @@
     border-top: none;
 }
 
-.accordion-content.is-open {
-    display: inline-block;
+.accordion-btn .icon {
+    transition: 0.3s;
 }
 
-.icon.is-open {
-    transform: rotate(45deg);
+.accordion-btn.is-open .icon {
+    transform: scale(2.0) rotate(405deg);
+}
+
+.accordion-content.is-open {
+    display: inline-block;
 }
