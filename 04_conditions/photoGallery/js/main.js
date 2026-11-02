@@ -10,6 +10,8 @@ const hpDisplay = document.getElementById('hp-display');
 const attackBtn = document.getElementById('attack-btn');
 const battleMessage = document.getElementById('battle-message');
 
+const resetBtn = document.getElementById('reset-btn');
+
 attackBtn.addEventListener('click', () => {
     currentHp -= DAMAGE;
     hpDisplay.textContent = `HP: ${currentHp}/ 100`;
@@ -29,3 +31,14 @@ attackBtn.addEventListener('click', () => {
     }
 
 });
+
+resetBtn.addEventListener('click', () => {
+    hpDisplay.textContent = `HP: 100/ 100`;
+    currentHp = MAX_HP;
+    enemyImg.setAttribute('src', BEFORE_IMG);
+    enemyImg.setAttribute('alt', '元気なモンスター');
+    battleMessage.textContent = '「こうげき」ボタンを押してダメージを与えよう！';
+    hpDisplay.style.color = '#333';
+    attackBtn.removeAttribute('disabled')
+
+})
