@@ -14,6 +14,11 @@ const resetBtn = document.getElementById('reset-btn');
 
 attackBtn.addEventListener('click', () => {
     currentHp -= DAMAGE;
+
+    // ダメージ量が割り切れなくてもマイナスにしない処理
+    if (currentHp < 0) {
+        currentHp = 0;
+    }
     hpDisplay.textContent = `HP: ${currentHp}/ 100`;
 
     if (currentHp === 0) {
