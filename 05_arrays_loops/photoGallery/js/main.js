@@ -7,13 +7,17 @@ let currentIndex = 0;
 
 for (let i = 0; i < thumbImg.length; i++) {
     thumbImg[i].addEventListener('click', () => {
-        thumbImg[i].getAttribute('src');
-        thumbImg[i].getAttribute('alt');
-        thumbImg[i].setAttribute('alt',)
-        captionText = ('${currentIndex}/${thumbImg.length}:');
-        for (let j = 0; j < thumbImg.length; i++) {
-            thumbImg[j].classList.remove('.is-active');
+        currentIndex = i;
+        const newSrc = thumbImg[currentIndex].getAttribute('src');
+        const newAlt = thumbImg[currentIndex].getAttribute('alt');
+
+        mainImg.setAttribute('src', newSrc);
+        mainImg.setAttribute('alt', newAlt);
+
+        captionText.textContent = `${currentIndex + 1} / ${thumbImg.length} : ${newAlt}`;
+        for (let j = 0; j < thumbImg.length; j++) {
+            thumbImg[j].classList.remove('is-active');
         }
-        thumbImg[i].classList.add('is-active');
+        thumbImg[currentIndex].classList.add('is-active');
     });
 }
